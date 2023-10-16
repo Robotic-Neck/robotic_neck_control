@@ -1,10 +1,6 @@
 # robotic_neck_control
  ROS2 package to apply PID position control over the linear actuators for pitch and roll manipulation.
 
-<p align="center">
-  <img width="640" height="480" src="neck_mec_sim.png">
-</p>
-
 ## Dependencies
 * Framework: [ROS2 Humble (desktop)](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 * [launch_utils](https://github.com/MonkyDCristian/launch_utils)
