@@ -29,4 +29,4 @@ ros2 launch platform_controller platform_controller.launch.py
 
 ## Documentation
 
-Velocidad de los controladores puede operar entre 5 y 11 rad/s sin carga!
+Motors velocity can be set beetween 5 and 11 rad/s.
