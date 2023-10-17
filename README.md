@@ -21,8 +21,10 @@ rosdep install -i --from-path src --rosdistro humble -y
 ```
 
 ## Demo
+
+Run the controller:
 ```
-TODO
+ros2 launch motor_velocity_controller motor_velocity_controller.launch.py
 ```
 
 ## Documentation
