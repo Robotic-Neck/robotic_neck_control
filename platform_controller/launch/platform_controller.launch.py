@@ -6,9 +6,9 @@ def generate_launch_description():
     # Set the parameters for the motors velocity  PID controller
     out_min = -250
     out_max = 250
-    kp = 20.0
-    ki = 0.0
-    kd = 0.0
+    kp = 1.5
+    ki = 36.0
+    kd = 1.0
 
     return LaunchDescription([
         Node(
