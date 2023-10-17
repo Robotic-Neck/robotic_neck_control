@@ -21,9 +21,12 @@ rosdep install -i --from-path src --rosdistro humble -y
 ```
 
 ## Demo
+
+Run the controller:
 ```
-TODO
+ros2 launch platform_controller platform_controller.launch.py
 ```
 
 ## Documentation
-TODO
+
+Motors velocity can be set beetween 5 and 11 rad/s.
