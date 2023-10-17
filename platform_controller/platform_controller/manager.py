@@ -41,7 +41,7 @@ class Manager(Node):
         self.right_motor_encoder_sub = self.create_subscription(Int16, '/rpip/encoder_left_pub',
                                                                 self.right_motor_encoder_callback, 10)
         
-        self.timer = self.create_timer(0.1, self.timer_callback)
+        # self.timer = self.create_timer(0.1, self.timer_callback)
 
     def timer_callback(self):
             msg = Float32()
@@ -64,18 +64,14 @@ class Manager(Node):
         """
         This function is used to publish the control effort to the right motor.
         """
-        self.get_logger().info('I HEARD: "%s"' % msg.data)
         int_msg = Int16()
         int_msg.data = -round(msg.data)
-
-        self.get_logger().info('TRANSFORMED: "%s"' % int_msg.data)
 
         if int_msg.data > 255:
             int_msg.data = 255
         elif int_msg.data < -255:
             int_msg.data = -255
 
-        self.get_logger().info('I PUBLSIH: "%s"' % int_msg.data)
         self.set_right_motor_vel_pub.publish(int_msg)
     
     def left_motor_encoder_callback(self, msg):
