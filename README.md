@@ -24,8 +24,9 @@ rosdep install -i --from-path src --rosdistro humble -y
 
 Run the controller:
 ```
-ros2 launch motor_velocity_controller motor_velocity_controller.launch.py
+ros2 launch platform_controller platform_controller.launch.py
 ```
 
 ## Documentation
-TODO
+
+Velocidad de los controladores puede operar entre 5 y 11 rad/s sin carga!
