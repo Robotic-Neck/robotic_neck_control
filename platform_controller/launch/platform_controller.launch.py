@@ -6,9 +6,9 @@ def generate_launch_description():
     # Set the parameters for the motors velocity  PID controller
     out_min = -250
     out_max = 250
-    kp = 1.5
-    ki = 36.0
-    kd = 1.0
+    kp = 1.6
+    ki = 16.4
+    kd = 0.31
 
     return LaunchDescription([
         Node(
@@ -61,7 +61,12 @@ def generate_launch_description():
         ),
         Node(
             package='platform_controller',
-            executable='manager',
+            executable='motor_manager',
+            output='screen'
+        ),
+        Node(
+            package='platform_controller',
+            executable='platform_manager',
             output='screen'
         )
     ])
