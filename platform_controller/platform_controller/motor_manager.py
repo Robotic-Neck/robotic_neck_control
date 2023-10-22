@@ -11,9 +11,10 @@ class MotorManager(Node):
         super().__init__('motor_manager')
         
         # Motor parameters
-        self.motor_ppr = 7
-        self.motor_gear_ratio = 50
-        self.motor_counts_per_revolution = self.motor_ppr * self.motor_gear_ratio
+        # self.motor_ppr = 7
+        # self.motor_gear_ratio = 50
+        # self.motor_counts_per_revolution = self.motor_ppr * self.motor_gear_ratio
+        self.motor_counts_per_revolution = 1400 # Experimentally obtained
 
         # Create the publishers with angular velocity setpoints
         self.left_motor_vel_setpoint_pub = self.create_publisher(Float32, '/left_motor/set_point', 10)
@@ -84,7 +85,7 @@ class MotorManager(Node):
         This function is used to publish the actual state from the left motor velocity.
         Recieves the counts per second from the encoder and publishes the angular velocity.
         """
-        revolution_per_secod = msg.data / self.motor_counts_per_revolution
+        revolution_per_secod = (msg.data / self.motor_counts_per_revolution)/0.1
         angular_velocity = revolution_per_secod * 2 * math.pi
         float_msg = Float32()
         float_msg.data = angular_velocity
@@ -95,7 +96,7 @@ class MotorManager(Node):
         This function is used to publish the actual state from the right motor velocity.
         Recieves the counts per second from the encoder and publishes the angular velocity.
         """
-        revolution_per_secod = msg.data / self.motor_counts_per_revolution
+        revolution_per_secod = (msg.data / self.motor_counts_per_revolution)/0.1
         angular_velocity = revolution_per_secod * 2 * math.pi
         float_msg = Float32()
         float_msg.data = angular_velocity
