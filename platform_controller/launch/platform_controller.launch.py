@@ -63,5 +63,10 @@ def generate_launch_description():
             package='platform_controller',
             executable='motor_manager',
             output='screen'
+        ),
+        Node(
+            package='platform_controller',
+            executable='platform_manager',
+            output='screen'
         )
     ])

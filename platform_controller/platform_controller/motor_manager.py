@@ -16,10 +16,6 @@ class MotorManager(Node):
         # self.motor_counts_per_revolution = self.motor_ppr * self.motor_gear_ratio
         self.motor_counts_per_revolution = 1400 # Experimentally obtained
 
-        # Create the publishers with angular velocity setpoints
-        self.left_motor_vel_setpoint_pub = self.create_publisher(Float32, '/left_motor/set_point', 10)
-        self.right_motor_vel_setpoint_pub = self.create_publisher(Float32, '/right_motor/set_point', 10)
-
         # Create the publishers with the actual state of angular velocity
         self.left_motor_actual_vel_pub = self.create_publisher(Float32, '/left_motor/actual_state', 10)
         self.right_motor_actual_vel_pub = self.create_publisher(Float32, '/right_motor/actual_state', 10)
@@ -41,14 +37,6 @@ class MotorManager(Node):
                                                                self.left_motor_encoder_callback, 10)
         self.right_motor_encoder_sub = self.create_subscription(Int16, '/rpip/encoder_right_pub',
                                                                 self.right_motor_encoder_callback, 10)
-        
-        # self.timer = self.create_timer(0.1, self.timer_callback)
-
-    def timer_callback(self):
-            msg = Float32()
-            msg.data = 10.0
-            self.left_motor_vel_setpoint_pub.publish(msg)
-            self.right_motor_vel_setpoint_pub.publish(msg)
         
 
     def left_motor_control_effort_callback(self, msg):

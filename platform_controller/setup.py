@@ -21,7 +21,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'motor_manager = platform_controller.motor_manager:main'
+            'motor_manager = platform_controller.motor_manager:main',
+            'platform_manager = platform_controller.platform_manager:main'
         ],
     },
 )
