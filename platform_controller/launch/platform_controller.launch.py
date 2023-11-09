@@ -1,5 +1,7 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
+from launch_utils.utils import launch_robot_state_publisher_node as launch_rsp_node
+from launch_utils.utils import launch_rviz_node
 
 def generate_launch_description():
 
@@ -11,6 +13,16 @@ def generate_launch_description():
     kd = 0.31
 
     return LaunchDescription([
+        launch_rviz_node(package_name='robotic_neck_viz', config_file='robotic_neck.rviz'),
+        launch_rsp_node( package_name="robotic_neck_viz", xacro_file="robotic_neck.urdf.xacro"),
+        Node(package='robotic_neck_viz',
+            executable='neck_joint_publisher',
+            name='neck_joint_publisher'
+        ),
+        Node(package='rqt_reconfigure',
+            executable='rqt_reconfigure',
+            name='rqt_reconfigure'
+        ),
         Node(
             package='motors_velocity_controller',
             executable='motors_velocity_controller',
