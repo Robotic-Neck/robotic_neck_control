@@ -32,7 +32,6 @@ class MotorManager(Node):
 
 
         # Create the subscribers with the counts per second from the encoder
-        # THESE ARE INVERTED BECAUSE THE ENCODERS TOPICS ARE INVERTED
         self.left_motor_encoder_sub = self.create_subscription(Int16, '/rpip/encoder_left_pub', 
                                                                self.left_motor_encoder_callback, 10)
         self.right_motor_encoder_sub = self.create_subscription(Int16, '/rpip/encoder_right_pub',
@@ -59,7 +58,7 @@ class MotorManager(Node):
         This function is used to publish the control effort to the right motor.
         """
         int_msg = Int16()
-        int_msg.data = -round(msg.data)
+        int_msg.data = round(msg.data)
 
         if int_msg.data > 255:
             int_msg.data = 255

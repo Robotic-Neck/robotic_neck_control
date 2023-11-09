@@ -37,7 +37,7 @@ In another terminal send linear travel to both linear actuators:
 ros2 topic pub --once /platform/right_lineal_actuator_travel std_msgs/msg/Float32 "data: 30.0" & ros2 topic pub --once /platform/left_lineal_actuator_travel std_msgs/msg/Float32 "data: 30.0"
 ```
 
-Note: Distance is in mm. Positive distance means going down and negative distance means going up.
+Note: Distance is in mm. Positive distance means going up and negative distance means going down.
 
 ## Documentation
 
