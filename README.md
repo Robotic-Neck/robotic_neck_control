@@ -4,7 +4,7 @@
  ## Ros2 Robotic Neck Control Graph
  At the moment, this version works sending linear travel to each linear actuator. 
 
- ![My Image](img/ControlSystemDiagram.png)
+ ![My Image](img/ControlSystemDiagramV2.png)
 
 ## Dependencies
 * Framework: [ROS2 Humble (desktop)](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
@@ -32,12 +32,14 @@ Run the controller:
 ros2 launch platform_controller platform_controller.launch.py
 ```
 
-In another terminal send linear travel to both linear actuators:
-```
-ros2 topic pub --once /platform/right_lineal_actuator_travel std_msgs/msg/Float32 "data: 30.0" & ros2 topic pub --once /platform/left_lineal_actuator_travel std_msgs/msg/Float32 "data: 30.0"
-```
+You should see the visualization in RVIZ2 and the rqt_reconfigure interface. Here you can change the pitch and roll values.
 
-Note: Distance is in mm. Positive distance means going up and negative distance means going down.
+ ![My Image](img/reconfig.png)
+
+
+The visualization should look like:
+
+![My Image](img/RVIZ2.png)
 
 ## Documentation
 
