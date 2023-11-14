@@ -16,7 +16,11 @@
 cd <path to your workspace src>/
 git clone https://github.com/Robotic-Neck/robotic_neck_control.git
 cd ..
-colcon build --packages-select robotic_neck_control
+colcon build --packages-select pid_library
+source ~/.bashrc
+colcon build --packages-select motors_velocity_controller
+source ~/.bashrc
+colcon build
 ```
 
 ## Install ROS packages dependencies with rosdep  
