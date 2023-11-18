@@ -25,7 +25,7 @@ class PlatformManager(Node):
         self.r_motor_vel_setpoint_pub = self.create_publisher(Float32, '/right_motor/set_point', 10)
 
         # Create the subscribers to the inverse kinematics nodes
-        self.joint_states_sub = self.create_subscription(JointState, '/joint_states',
+        self.joint_states_sub = self.create_subscription(JointState, 'target/joint_states',
                                                          self.joint_states_callback, 1)
 
     def joint_states_callback(self, msg):

@@ -13,12 +13,11 @@ def generate_launch_description():
     kd = 0.31
 
     return LaunchDescription([
+        Node(package='robotic_neck_viz', executable='neck_state_joint_publisher', name='neck_state_joint_publisher'),
+        launch_rsp_node(package_name="robotic_neck_viz", xacro_file="robotic_neck_state.urdf.xacro", namespace="state"),
+        Node(package='robotic_neck_viz', executable='neck_target_joint_publisher', name='neck_target_joint_publisher'),
+        launch_rsp_node( package_name="robotic_neck_viz", xacro_file="robotic_neck_target.urdf.xacro", namespace="target"),
         launch_rviz_node(package_name='robotic_neck_viz', config_file='robotic_neck.rviz'),
-        launch_rsp_node( package_name="robotic_neck_viz", xacro_file="robotic_neck.urdf.xacro"),
-        Node(package='robotic_neck_viz',
-            executable='neck_joint_publisher',
-            name='neck_joint_publisher'
-        ),
         Node(package='rqt_reconfigure',
             executable='rqt_reconfigure',
             name='rqt_reconfigure'
