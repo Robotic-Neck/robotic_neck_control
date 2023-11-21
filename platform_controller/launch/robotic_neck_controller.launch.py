@@ -8,9 +8,9 @@ def generate_launch_description():
     # Set the parameters for the motors velocity PID controller
     motor_out_min = -250
     motor_out_max = 250
-    motors_kp = 1.6
-    motors_ki = 16.4
-    motors_kd = 0.31
+    motor_kp = 1.6
+    motor_ki = 16.4
+    motor_kd = 0.31
 
     # Set the parameters for the lineal actuators PID controller
     lineal_actuator_out_min = -20
