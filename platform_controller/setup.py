@@ -4,7 +4,7 @@ package_name = 'platform_controller'
 
 data_files = []
 data_files.append(('share/' + package_name, ['package.xml']))
-data_files.append(('share/' + package_name + '/launch', ['launch/platform_controller.launch.py']))
+data_files.append(('share/' + package_name + '/launch', ['launch/platform_controller.launch.py', 'launch/robotic_neck_controller.launch.py']))
 data_files.append(('share/ament_index/resource_index/packages', ['resource/' + package_name]))
 
 setup(
