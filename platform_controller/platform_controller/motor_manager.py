@@ -75,12 +75,18 @@ class MotorManager(Node):
         int_msg = Int16()
         int_msg.data = round(msg.data)
 
+        if self.limit_block:
+            if int_msg.data >0:
+                self.limit_block = False
+            else:
+                int_msg.data = 0
+
         if int_msg.data > 255:
             int_msg.data = 255
         elif int_msg.data < -255:
             int_msg.data = -255
-        if ((not self.limit_block) or int_msg.data>0):
-            self.set_right_motor_vel_pub.publish(int_msg)
+        
+        self.set_right_motor_vel_pub.publish(int_msg)
     
     def left_motor_encoder_callback(self, msg):
         """
