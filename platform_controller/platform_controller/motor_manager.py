@@ -38,8 +38,8 @@ class MotorManager(Node):
                                                                self.left_motor_encoder_callback, 10)
         self.right_motor_encoder_sub = self.create_subscription(Int16, '/rpip/encoder_right_pub',
                                                                 self.right_motor_encoder_callback, 10)
-        self.right_ls_sub = self.create_subscription(Empty,'/rpip/ls_right', self.right_stop_callback, 10)
-        self.left_ls_sub = self.create_subscription(Empty,'/rpip/ls_left', self.left_stop_callback, 10)
+        self.right_ls_sub = self.create_subscription(Empty,'/rpip/ls_right_pub', self.right_stop_callback, 10)
+        self.left_ls_sub = self.create_subscription(Empty,'/rpip/ls_left_pub', self.left_stop_callback, 10)
 
     def left_motor_control_effort_callback(self, msg):
         """
@@ -111,10 +111,12 @@ class MotorManager(Node):
         self.right_motor_actual_vel_pub.publish(float_msg)
 
     def left_stop_callback(self, msg):
+        self.get_logger().info('Left motor stop')
         self.limit_block = True
         
 
     def right_stop_callback(self, msg):
+        self.get_logger().info('Right motor stop')
         self.limit_block = True
         
 
