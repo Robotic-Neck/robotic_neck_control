@@ -15,9 +15,9 @@ def generate_launch_description():
     # Set the parameters for the lineal actuators PID controller
     lineal_actuator_out_min = -20
     lineal_actuator_out_max = 20
-    lineal_actuators_kp = 1000.0
+    lineal_actuators_kp = 1100.0
     lineal_actuators_ki = 0.0
-    lineal_actuators_kd = 0.0
+    lineal_actuators_kd = 100.0
 
     return LaunchDescription([
         Node(package='robotic_neck_viz', executable='neck_state_joint_publisher', name='neck_state_joint_publisher'),

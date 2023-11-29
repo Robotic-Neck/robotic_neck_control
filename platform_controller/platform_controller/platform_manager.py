@@ -68,14 +68,14 @@ class PlatformManager(Node):
 
     def l_actuator_control_effort_callback(self, msg):
         # Limit the control effort to 20.0
-        if msg.data > 20:
-            msg.data = 20.0
+        if msg.data > 10:
+            msg.data = 10.0
         self.l_motor_vel_setpoint_pub.publish(Float32(data=msg.data))
             
     def r_actuator_control_effort_callback(self, msg):
         # Limit the control effort to 20.0
-        if msg.data > 20:
-            msg.data = 20.0
+        if msg.data > 10:
+            msg.data = 10.0
         self.r_motor_vel_setpoint_pub.publish(Float32(data=msg.data))
 
 def main(args=None):
